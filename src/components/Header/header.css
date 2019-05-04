@@ -1,0 +1,15 @@
+.Header{
+    
+    color: rgb(176, 34, 219);
+    background-color: rgb(22, 219, 226);
+    border: 1px;
+    border-radius: 5%;
+    height: 18rem;
+    text-align: center;
+}
+
+h1{
+    padding: 2rem;
+    margin: auto;
+    font-size: 5rem;
+}

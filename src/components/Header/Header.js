@@ -1,4 +1,5 @@
 import React from 'react';
+import "./header.css"
 
 
 
@@ -6,11 +7,14 @@ import React from 'react';
 export default class Header extends React.Component{
 
   render(){
-    return(
-      <div>
-        <h1>This is Our Header Div </h1>
-      </div>
+    
 
+    return(
+      <div className= "Header">
+        <h1>Welcome to the Spotify Mood Checker </h1>
+      </div>
+      
+      
 
 
     )

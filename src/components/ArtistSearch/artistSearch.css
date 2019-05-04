@@ -1,0 +1,15 @@
+.artist-search{
+    color: rgba(41, 184, 12);
+    height: 20rem;
+    background-color: #B00B55;
+    text-align: center;
+    padding-top: 0.5rem;
+    margin: auto;
+    border-radius: 5%;
+}
+
+h2{
+    font-size: 5rem;
+    padding-top: 0rem;
+    
+}
