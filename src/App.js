@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css';
 
-import Header from './components/Header';
+import Header from './components/header';
 import ArtistSearch from './components/ArtistSearch';
 import SpotifyLogin from './components/SpotifyLogin';
-
+import AlbumSearch from './components/AlbumSearch';
 
 
 
@@ -21,20 +21,13 @@ class App extends React.Component{
     }
   }
   
-
   onArtistChange(val){
     console.log("In the App", val);
     this.setState({currentArtist: val});
   }
 
   componentDidMount(){
-
-
   }
-
-
-
-
 
   render(){
     return (
@@ -43,11 +36,9 @@ class App extends React.Component{
       <Header />
       <SpotifyLogin />
       <ArtistSearch onArtistChange={(v)=> this.onArtistChange(v)}/>
+      <AlbumSearch />
     </div>
-  );
+    );
   }
-
 }
-
-
 export default App;
