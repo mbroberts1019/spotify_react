@@ -1,6 +1,35 @@
 import React from "react";
+import { SSL_OP_TLS_ROLLBACK_BUG } from "constants";
 
 const stateKey = "spotify_auth_state";
+
+const style = {
+  backgroundColor: 'rgb(155,230,20)',
+  fontSize: '30px',
+  display: 'flex',
+  
+  justifyContent: 'space-evenly',
+  alignItems: 'center',
+  color: 'rgb(250,20,200)'
+}
+
+const btnStyle = {
+  height: '40px',
+  width: '100px',
+  borderRadius: '5px',
+  color: 'rgb(250,20,200)',
+  fontWeight: 'bold',
+  fontFamily: 'monospace',
+  fontSize: '18px',
+  float: 'left'
+}
+
+const btnDiv = {
+  width: '25%'
+}
+
+
+
 
 const SpotifyLogin = class extends React.Component {
   componentDidMount() {
@@ -26,7 +55,14 @@ const SpotifyLogin = class extends React.Component {
   };
 
   render() {
-    return <button onClick={this.handleClick}>Log in</button>;
+    return (
+    <div style = {style}>
+      <h3>Please login to Spotify</h3>
+      <div style= {btnDiv}>
+        <button onClick={this.handleClick} style= {btnStyle}>Log in</button>
+      </div>  
+    </div>
+    );
   }
 };
 

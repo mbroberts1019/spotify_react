@@ -1,5 +1,23 @@
 import React from 'react';
-import './artistSearch.css'
+
+
+
+const artistSearch = {
+  color: 'rgba(41, 184, 12)',
+  height: '20rem',
+  backgroundColor: '#B00B55',
+  textAlign: 'center',
+  paddingTop: '0.5rem',
+  margin: 'auto'
+  
+}
+
+const h2Style ={
+  padding: '2rem',
+  margin: 'auto',
+  fontSize: '5rem'
+}
+
 
 
 
@@ -28,11 +46,12 @@ export default class ArtistSearch extends React.Component{
   }
   render(){
     return(
-      <div className= "artist-search">
-        <h2>Search an Artist:</h2>
+      <div style= {artistSearch}>
+        <h2 style= {h2Style}>Search an Artist:</h2>
         <form onSubmit= {(e)=>this.onSubmit(e)}>
-        <input id= "searchedName" type= "text" placeholder="Artist Name" ></input>
-        <button type= "submit">Submit</button></form>
+          <input id= "searchedName" type= "text" placeholder="Artist Name" ></input>
+          <button type= "submit">Submit</button>
+        </form>
 
       </div>
 
