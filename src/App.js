@@ -17,26 +17,30 @@ class App extends React.Component{
   constructor(){
     super();
     this.state = {
-      currentArtist: ''
+      artistName: '',
+      artistId: '',
+      
     }
   }
   
-  onArtistChange(val){
-    console.log("In the App", val);
-    this.setState({currentArtist: val});
+  onArtistChange(name, id){
+    console.log("In the App", name, id);
+    this.setState({artistName: name, artistId: id});
   }
 
   componentDidMount(){
+    
   }
 
   render(){
+    console.log(this.state);
     return (
       
       <div className="App">
       <Header />
       <SpotifyLogin />
-      <ArtistSearch onArtistChange={(v)=> this.onArtistChange(v)}/>
-      <AlbumSearch />
+      <ArtistSearch onArtistChange={(n,i)=> this.onArtistChange(n,i)}/>
+      <AlbumSearch artistName={this.state.artistName} artistId={this.state.artistId}/>
     </div>
     );
   }
