@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Card from './Card.js'
 
 
 const artistSearch = {
@@ -42,7 +42,14 @@ export default class ArtistSearch extends React.Component{
       }
     }).then((res) => res.json())
     .then(res => {
-      console.log("RES", res);});
+      console.log("RES", res);
+      this.cards= [];
+      for(let i = 0; i < 5; i++){
+        this.cards.push(<Card key={i} img= 'res.artists.items[i].images[0].url' />);
+      }
+      console.log(this.cards);
+
+    });
   }
   render(){
     return(
@@ -52,7 +59,7 @@ export default class ArtistSearch extends React.Component{
           <input id= "searchedName" type= "text" placeholder="Artist Name" ></input>
           <button type= "submit">Submit</button>
         </form>
-
+        <div>{this.cards}</div>
       </div>
 
 
