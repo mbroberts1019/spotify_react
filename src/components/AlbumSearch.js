@@ -3,33 +3,71 @@ import Card from './Card.js';
 
 
 const AlbumSearchStyle = {
-    backgroundColor: 'cadetblue',
-    height: '100%',
-    flexWrap:'wrap',
-    display:'flex',
-    justifyContent:'space-evenly',
-    alignItems:'flex-start',
-    alignContent:'space-around'
+  backgroundColor: 'cadetblue',
+  height: '100%',
+  flexWrap: 'wrap',
+  display: 'flex',
+  justifyContent: 'space-evenly',
+  alignItems: 'flex-start',
+  alignContent: 'space-around'
 };
 const h1 = {
-    color: 'green',
+  color: 'green',
 };
 
 
-export default class AlbumSearch extends React.Component{
+export default class AlbumSearch extends React.Component {
+  constructor(props){
+    super(props);
 
-    componentWillMount(){
-        this.cards=[];
+    this.state = {
+      cards: []
+    }
+  }
 
-        for(let i = 0; i < 10; i++){
-            this.cards.push(<Card key={i} img='data:image/jpeg;base64,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' />);
+  /*
+    componentDidUpdate(previousProps, previousState) {
+        if (previousProps.data !== this.props.data) {
+            this.setState({})
         }
     }
+  */
 
-  render(){
-    return(
+  componentDidUpdate(prevProps, prevState) {
+    let artistId = this.props.artistId;
+    const urlParams = new URLSearchParams(window.location.hash.replace('#', '?'));
+    const access_token = urlParams.get('access_token')
+    console.log(artistId);
+
+    fetch(`	https://api.spotify.com/v1/artists/${artistId}/albums`, {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + access_token
+      }
+    }).then((res) => res.json())
+
+      .then((res) => {
+        console.log('AlbumSearch', res.items);
+        let cards = [];
+        
+        for (let i = 0; i < 10; i++) {
+          console.log(res.items[i].images[1].url);
+          cards.push(<Card key={i} img={res.items[i].images[1].url} />);
+        }
+//checking if the props are dirty or not..
+        if(prevProps.artistId !== this.props.artistId){
+          this.setState({ cards: cards });
+        }
+      });
+  }
+
+  render() {
+    console.log(this.state);
+    return (
       <div style={AlbumSearchStyle}>
-        {this.cards}
+        {this.state.cards}
       </div>
 
     )
