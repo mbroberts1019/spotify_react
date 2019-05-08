@@ -37,7 +37,7 @@ export default class AlbumSearch extends React.Component {
     let artistId = this.props.artistId;
     const urlParams = new URLSearchParams(window.location.hash.replace('#', '?'));
     const access_token = urlParams.get('access_token')
-    console.log(artistId);
+    //console.log(artistId);
 
     fetch(`	https://api.spotify.com/v1/artists/${artistId}/albums`, {
       method: 'GET',
@@ -49,11 +49,11 @@ export default class AlbumSearch extends React.Component {
     }).then((res) => res.json())
 
       .then((res) => {
-        console.log('AlbumSearch', res.items);
+        //console.log('AlbumSearch', res.items);
         let cards = [];
         
         for (let i = 0; i < 10; i++) {
-          console.log(res.items[i].images[1].url);
+          //console.log(res.items[i].images[1].url);
           cards.push(<Card key={i} img={res.items[i].images[1].url} />);
         }
 //checking if the props are dirty or not..
@@ -64,7 +64,7 @@ export default class AlbumSearch extends React.Component {
   }
 
   render() {
-    console.log(this.state);
+    //console.log(this.state);
     return (
       <div style={AlbumSearchStyle}>
         {this.state.cards}

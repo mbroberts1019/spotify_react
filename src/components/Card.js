@@ -22,7 +22,7 @@ export default class Card extends React.Component{
 
   render(){
     return(
-      <div style ={style}>
+      <div onClick={()=>this.props.onClick(this.props.card_name, this.props.card_id)} style ={style}>
         <img style={img}  src={this.props.img}></img>
         <h3>{this.props.title} </h3>
       </div>

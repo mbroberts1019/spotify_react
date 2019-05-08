@@ -5,7 +5,7 @@ import Header from './components/header';
 import ArtistSearch from './components/ArtistSearch';
 import SpotifyLogin from './components/SpotifyLogin';
 import AlbumSearch from './components/AlbumSearch';
-
+import ImgClass from './components/ImgClass';
 
 
 
@@ -41,6 +41,7 @@ class App extends React.Component{
       <SpotifyLogin />
       <ArtistSearch onArtistChange={(n,i)=> this.onArtistChange(n,i)}/>
       <AlbumSearch artistName={this.state.artistName} artistId={this.state.artistId}/>
+      <ImgClass />
     </div>
     );
   }
