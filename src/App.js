@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 
-import Header from './components/header';
+import Header from './components/Header';
 import ArtistSearch from './components/ArtistSearch';
 import SpotifyLogin from './components/SpotifyLogin';
 import AlbumSearch from './components/AlbumSearch';
