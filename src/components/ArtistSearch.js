@@ -9,6 +9,7 @@ const artistSearch = {
   textAlign: 'center',
   paddingTop: '0.5rem',
   margin: 'auto',
+  paddingBottom: '2rem'
   
 
 
@@ -29,6 +30,26 @@ const h2Style = {
   padding: '2rem',
   margin: 'auto',
   fontSize: '5rem'
+}
+
+const btnStyle = {
+  height: '40px',
+  width: '100px',
+  borderRadius: '5px',
+  color: 'rgb(250,20,200)',
+  fontWeight: 'bold',
+  fontFamily: 'monospace',
+  fontSize: '18px',
+  
+}
+
+const searchBoxStyle = {
+  width: '50%',
+  padding: '12px 20px',
+  margin: '8px 0',
+  boxSizing: 'border-box',
+  borderRadius: '4px',
+  fontSize: '2rem'
 }
 
 
@@ -57,26 +78,27 @@ export default class ArtistSearch extends React.Component {
       }
     }).then((res) => res.json())
       .then(res => {
-        console.log(res.artists);
+        
         let searchCards =[];
 // 
         for(let i = 0; i<5; i++){
-          console.log(res.artists.items[i].images[1].url)
-          searchCards.push( < Card card_name={res.artists.items[i].name} card_id={res.artists.items[i].id} onClick = {(id, name) => this.props.onArtistChange(id, name)} key = {
-                i
-              }
-              img = {
-                res.artists.items[i].images[1].url
-              }
+          
+          
+          if(res.artists.items[i].images.length !== 0){
+            
+            searchCards.push( < Card 
+              card_name={res.artists.items[i].name} 
+              card_id={res.artists.items[i].id} 
+              onClick = {(card_id, card_name) => this.props.onArtistChange(card_id, card_name)}
+              key = {i} 
+              img={res.artists.items[i].images[1].url}
               />);
+          }
 
         }
-        console.log (searchCards);
+        
         this.setState({searchCards:searchCards});
-
-
-
-        // this.props.onArtistChange(res.artists.items[0].name, res.artists.items[0].id);
+ 
       });
 
       
@@ -89,8 +111,8 @@ export default class ArtistSearch extends React.Component {
       <div style={artistSearch}>
         <h2 style={h2Style}>Search an Artist:</h2>
         <form onSubmit={(e) => this.onSubmit(e)}>
-          <input id="searchedName" type="text" placeholder="Artist Name" ></input>
-          <button type="submit">Submit</button>
+          <input style= {searchBoxStyle} id="searchedName" type="text" placeholder="Artist Name" ></input><br></br>
+          <button style={btnStyle} type="submit">Submit</button>
         </form>
         <div style={searchCard} >{this.state.searchCards}</div>
       </div>

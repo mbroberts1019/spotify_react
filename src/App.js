@@ -19,13 +19,16 @@ class App extends React.Component{
     this.state = {
       artistName: '',
       artistId: '',
-      
+      albumImgUrl: ''
     }
   }
   
   onArtistChange(name, id){
-    console.log("In the App", name, id);
-    this.setState({artistName: name, artistId: id});
+    this.setState({artistName: name, artistId: id,});
+  }
+
+  onAlbumSelect(img){   
+    this.setState({albumImgUrl: img})
   }
 
   componentDidMount(){
@@ -39,9 +42,14 @@ class App extends React.Component{
       <div className="App">
       <Header />
       <SpotifyLogin />
-      <ArtistSearch onArtistChange={(n,i)=> this.onArtistChange(n,i)}/>
-      <AlbumSearch artistName={this.state.artistName} artistId={this.state.artistId}/>
-      <ImgClass />
+      <ArtistSearch 
+        onArtistChange={(n,i)=> this.onArtistChange(n,i)}/>
+      <AlbumSearch 
+        onAlbumSelect={(img)=> this.onAlbumSelect(img)}
+        artistName={this.state.artistName} 
+        artistId={this.state.artistId}
+        />
+      <ImgClass albumImgUrl= {this.state.albumImgUrl} />
     </div>
     );
   }
